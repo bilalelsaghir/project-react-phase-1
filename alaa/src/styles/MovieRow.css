@@ -1,0 +1,51 @@
+.movie-row {
+  position: relative;
+  margin: 20px 0;
+}
+
+.movie-row h2 {
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+
+.row-container {
+  position: relative;
+}
+
+.movie-row-items {
+  display: flex;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+  padding: 10px 0;
+}
+
+.movie-row-items::-webkit-scrollbar {
+  display: none; /* hide scrollbar */
+}
+
+.movie-row button {
+  all: unset; /* remove default browser button styling */
+  cursor: pointer;
+  font-size: 2rem;
+  color: white;
+  background: rgba(0,0,0,0.5);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.movie-row:hover button {
+  opacity: 1;
+}
+
+.scroll-left { left: 10px; }
+.scroll-right { right: 10px; }

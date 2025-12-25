@@ -1,0 +1,46 @@
+/* Container for Dropdown */
+.category-dropdown {
+  margin: 20px auto 30px; /* top, auto center, bottom */
+  width: 200px; /* adjust width as needed */
+  text-align: center;
+}
+
+/* Centered Dropdown */
+.category-dropdown select {
+  width: 100%;
+  padding: 10px 15px;
+  border-radius: 25px;
+  border: none;
+  background-color: #2c2c2c;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  outline: none;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+/* Hover & Focus */
+.category-dropdown select:hover,
+.category-dropdown select:focus {
+  background-color: #e50914;
+  color: #fff;
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+}
+
+/* Grid for favorites */
+.ratings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+}
+
+/* No favorites message */
+.no-favorites {
+  color: #ccc;
+  font-size: 16px;
+  margin-top: 20px;
+  text-align: center;
+}

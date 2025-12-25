@@ -1,0 +1,135 @@
+/* ===============================
+   STREAMFLIX LOGIN – CINEMATIC
+=============================== */
+
+.login-page-wrapper {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.85),
+            rgba(0, 0, 0, 0.95)
+        ),
+        url("https://images.unsplash.com/photo-1489599849927-2ee91cede3ba");
+    background-size: cover;
+    background-position: center;
+}
+
+/* Glass cinematic card */
+.login-page {
+    width: 420px;
+    padding: 45px 40px;
+    background: rgba(20, 20, 20, 0.92);
+    backdrop-filter: blur(8px);
+    border-radius: 14px;
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.85),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+    animation: loginFade 0.8s ease;
+}
+
+/* Logo / Title */
+.login-page h1 {
+    text-align: center;
+    font-size: 2.6rem;
+    color: #e50914;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.login-page .tagline {
+    text-align: center;
+    color: #b3b3b3;
+    font-size: 0.95rem;
+    margin-bottom: 35px;
+}
+
+/* Inputs */
+.login-page input {
+    width: 100%;
+    padding: 14px 16px;
+    margin-bottom: 18px;
+    border-radius: 8px;
+    border: 1px solid #333;
+    background-color: #111;
+    color: #fff;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.login-page input::placeholder {
+    color: #777;
+}
+
+.login-page input:focus {
+    outline: none;
+    border-color: #e50914;
+    box-shadow: 0 0 0 3px rgba(229, 9, 20, 0.35);
+}
+
+/* Login button */
+.login-page button {
+    width: 100%;
+    padding: 14px;
+    margin-top: 10px;
+    background: linear-gradient(135deg, #e50914, #f40612);
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.login-page button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 40px rgba(229, 9, 20, 0.6);
+}
+
+/* Footer text */
+.login-page p {
+    margin-top: 28px;
+    font-size: 0.9rem;
+    color: #b3b3b3;
+    text-align: center;
+}
+
+.login-page p a {
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.login-page p a:hover {
+    color: #e50914;
+    text-decoration: underline;
+}
+
+/* Animation */
+@keyframes loginFade {
+    from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .login-page {
+        width: 90%;
+        padding: 35px 25px;
+    }
+
+    .login-page h1 {
+        font-size: 2.2rem;
+    }
+}
