@@ -16,7 +16,7 @@ export const FavoritesProvider = ({ children }) => {
         .then(res => {
           // normalize favorites
           const normalized = res.data.map(fav => ({
-            id: fav.favoriteRowId,   // backend favorite row ID
+            id: fav.id,   // backend favorite row ID
             movieId: fav.movieId,
             title: fav.title,
             image: fav.image,
