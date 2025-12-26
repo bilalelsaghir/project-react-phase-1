@@ -21,7 +21,11 @@ const db = mysql.createConnection({
   host: process.env.MYSQLHOST || process.env.DB_HOST || "localhost",
   user: process.env.MYSQLUSER || process.env.DB_USER || "root",
   password: process.env.MYSQLPASSWORD || process.env.DB_PASSWORD || "",
-  database: process.env.MYSQLDATABASE || process.env.DB_NAME || "movies_db",
+  database:
+    process.env.MYSQLDATABASE ||
+    process.env.MYSQL_DATABASE ||
+    process.env.DB_NAME ||
+    "movies_db",
   port: process.env.MYSQLPORT ? Number(process.env.MYSQLPORT) : undefined,
 });
 
