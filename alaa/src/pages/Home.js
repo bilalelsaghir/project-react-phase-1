@@ -2,16 +2,22 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import MovieRow from '../components/MovieRow';
 import '../styles/Home.css';
-import API_BASE from '../config/api';
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
 
-  useEffect(() => {
-    axios.get(`${API_BASE}/movies`)
-      .then(res => setMovies(res.data))
-      .catch(err => console.error(err));
-  }, []);
+ useEffect(() => {
+  const fetchMovies = async () => {
+    try {
+      const response = await axios.get("http://localhost:5000/movies");
+      setMovies(response.data);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  fetchMovies();
+}, []);
 
   if (movies.length === 0) return <p>Loading movies...</p>;
 
@@ -27,12 +33,12 @@ const Home = () => {
       {/* Hero Section */}
       <div
         className="hero-section"
-        style={{ backgroundImage: `url(${API_BASE}/images/${featuredMovie.image})` }}
+        style={{ backgroundImage: `url(http://localhost:5000/images/${featuredMovie.image})` }}
       >
         <h1>{featuredMovie.title}</h1>
         <p>{featuredMovie.description}</p>
         <div className="hero-buttons">
-    <button className="play-btn">▶ Play</button>
+    <button className="play-btn">▶️ Play</button>
     <button className="info-btn">ℹ Info</button>
   </div>
       </div>
