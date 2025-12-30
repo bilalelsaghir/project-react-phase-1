@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { useAuth } from '../contexts/AuthContext';
+import axios from 'axios';
 import '../styles/Signup.css';
 
 const Signup = () => {
   const [formData, setFormData] = useState({ username: '', email: '', password: '' });
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-  const { signup } = useAuth();
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -21,14 +20,15 @@ const Signup = () => {
     setError('');
 
     try {
-      const { success, message } = await signup(formData.username, formData.email, formData.password);
-      if (success) {
+      const response = await axios.post('http://localhost:5000/signup', formData);
+
+      if (response.data.success) {
         navigate('/login');
       } else {
-        setError(message);
+        setError(response.data.message || 'Signup failed');
       }
     } catch (err) {
-      setError(err.message || 'Something went wrong!');
+      setError(err.response?.data?.message || err.message || 'Something went wrong!');
     }
 
     setLoading(false);
