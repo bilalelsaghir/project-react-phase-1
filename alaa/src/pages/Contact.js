@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import "../styles/Contact.css";
 import contactImage from "../assets/movielogo.jpg";
-
+import API_BASE from "../config/api";
 const Contact = () => {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
 
@@ -14,7 +14,7 @@ const Contact = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:5000/contacts", formData);
+      const response = await axios.post(`${API_BASE}/contacts`, formData);
 
       if (response.data.success) {
         alert("Welcome! We will contact you soon 😊");
