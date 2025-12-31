@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import MovieCard from "../components/MovieCard";
 import "../styles/Browse.css";
+import API_BASE from "../config/api";
 
 const Browse = () => {
   const [movies, setMovies] = useState([]);
@@ -14,7 +15,7 @@ const Browse = () => {
 useEffect(() => {
   const fetchCategories = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/categories");
+      const response = await axios.get(`${API_BASE}/categories`);
       setCategories(response.data);
     } catch (err) {
       console.error(err);
@@ -28,7 +29,7 @@ useEffect(() => {
 useEffect(() => {
   const fetchMovies = async () => {
     try {
-      let url = "http://localhost:5000/movies";
+      let url = `${API_BASE}/movies`;
 
       if (category !== "All") {
         url += `?category=${encodeURIComponent(category)}`;
