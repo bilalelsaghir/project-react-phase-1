@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import MovieRow from '../components/MovieRow';
 import '../styles/Home.css';
+import API_BASE from "../config/api";
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
@@ -9,7 +10,7 @@ const Home = () => {
  useEffect(() => {
   const fetchMovies = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/movies");
+      const response = await axios.get(`${API_BASE}/movies`);
       setMovies(response.data);
     } catch (err) {
       console.error(err);
